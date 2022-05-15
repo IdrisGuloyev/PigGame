@@ -21,7 +21,6 @@ const initGame = function () {
   currentScore = 0;
   activePlayer = 0;
   isPlaying = true;
-
   score0Element.textContent = 0;
   score1Element.textContent = 0;
   current0Element.textContent = 0;
@@ -44,7 +43,6 @@ const switchActivePlayer = function () {
   player0Element.classList.toggle('player--active');
   player1Element.classList.toggle('player--active');
 };
-
 // Roll the dice
 btnRoll.addEventListener('click', function () {
   if (isPlaying) {
@@ -63,16 +61,14 @@ btnRoll.addEventListener('click', function () {
     }
   }
 });
-
 btnHold.addEventListener('click', function () {
   if (isPlaying) {
     // 1. Add current score to active player total score
     totalScores[activePlayer] += currentScore;
     document.getElementById(`score--${activePlayer}`).textContent =
       totalScores[activePlayer];
-
     // 2. If total score of active player >= 100, active player won
-    if (totalScores[activePlayer] >= 100) {
+    if (totalScores[activePlayer] >= 101) {
       isPlaying = false;
       document
         .querySelector0(`.player--${activePlayer}`)
